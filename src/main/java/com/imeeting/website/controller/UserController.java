@@ -80,8 +80,7 @@ public class UserController {
     /**
      * Method find for searching data user
      *
-     * @param key this for keyword searching
-     * @param value this for value of data searching
+     * @param find this entity for keyword and value searching
      * @return
      *
      * */
