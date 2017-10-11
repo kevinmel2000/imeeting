@@ -36,4 +36,8 @@ public class RestApplicationTests {
 		System.out.println(userService.getAll());
 	}
 
+	@Test
+	public void find(){
+	}
+
 }
