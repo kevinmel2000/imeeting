@@ -19,20 +19,58 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    /**
+     * Api get data all. We no need PSS(Pagging, sorting, searching) because the bispro not have more of user.
+     * @return
+     * */
     @RequestMapping(method = RequestMethod.GET)
     public Map getAll(){
         return userService.getAll();
     }
+
+    /**
+     * Api update data for user. Client must send data in JSON.
+     * ex json :
+     * {
+     *      "id":"1211",
+     *      "email":"matius.prastowo@iconpln.co.id",
+     *      "password":"P@ssw0rd123",
+     *      "nama":"matius apry prastowo"
+     * }
+     *
+     * @param user entity from user
+     * @return
+     * */
 
     @RequestMapping(method = RequestMethod.PUT)
     public Map edit(@RequestBody User user){
         return userService.edit(user);
     }
 
+    /**
+     * Api save user. Client must send data in JSON.
+     * ex json :
+     * {
+     *      "email":"matius.prastowo@iconpln.co.id",
+     *      "password":"P@ssw0rd123",
+     *      "nama":"matius apry prastowo"
+     * }
+     * @param user entity form user
+     * @return
+     * */
+
     @RequestMapping(method = RequestMethod.POST)
     public Map save(@RequestBody User user){
         return userService.save(user);
     }
+
+    /**
+     * Api del user. The data will be delete from database.
+     * user must input parameter id from user
+     *
+     * @param id id_user form table user
+     * @return
+     * */
 
     @RequestMapping(value = "/del/{id}", method = RequestMethod.GET)
     public Map del(@PathVariable Integer id){
@@ -44,6 +82,7 @@ public class UserController {
      *
      * @param key this for keyword searching
      * @param value this for value of data searching
+     * @return
      *
      * */
 
